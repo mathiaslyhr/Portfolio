@@ -1,0 +1,75 @@
+import { useEffect, useState } from 'react'
+
+const links = [
+  { id: 'hjem', label: 'Hjem' },
+  { id: 'om', label: 'Info' },
+  { id: 'projekter', label: 'Work' },
+]
+
+export default function Navbar() {
+  const [active, setActive] = useState('hjem')
+
+  useEffect(() => {
+    const onScroll = () => {
+      const top = window.scrollY || document.documentElement.scrollTop
+      if (top < 80) { setActive('hjem'); return }
+
+      const positions = links.slice(1).map((l) => {
+        const el = document.getElementById(l.id)
+        if (!el) return { id: l.id, dist: Infinity }
+        const rect = el.getBoundingClientRect()
+        return { id: l.id, dist: Math.abs(rect.top - 140) }
+      })
+
+      positions.sort((a, b) => a.dist - b.dist)
+      setActive(positions[0]?.id || 'hjem')
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const handleNav = (e, id) => {
+    e.preventDefault()
+    if (id === 'hjem') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  return (
+    <header className="fixed top-4 left-0 right-0 z-50">
+      <div className="max-w-6xl mx-auto flex items-center justify-center">
+        <div className="relative inline-flex">
+          <div className="pointer-events-none absolute inset-0 rounded-full border border-white/10 bg-black/40 backdrop-blur" />
+          {/* her er gap sat op til 6 */}
+          <nav className="relative z-10 flex items-center gap-6 px-4 py-0 overflow-visible">
+            {links.map((l) => {
+              const isActive = active === l.id
+              const base =
+                'relative rounded-full text-sm inline-flex items-center justify-center transition'
+
+              const pill = isActive
+                ? '-my-1 px-4 py-2 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
+                : 'px-3 py-1.5 text-white/80 hover:text-white'
+
+              return (
+                <a
+                  key={l.id}
+                  href={l.id === 'hjem' ? '#' : `#${l.id}`}
+                  onClick={(e) => handleNav(e, l.id)}
+                  className="relative"
+                >
+                  <span className={`${base} ${pill}`}>{l.label}</span>
+                </a>
+              )
+            })}
+          </nav>
+        </div>
+      </div>
+    </header>
+  )
+}
