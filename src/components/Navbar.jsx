@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 const links = [
   { id: 'hjem', label: 'Hjem' },
-  { id: 'om', label: 'Info' },
-  { id: 'projekter', label: 'Work' },
+  { id: 'om', label: 'Om mig' },
+  { id: 'projekter', label: 'Projekter' },
 ]
 
 export default function Navbar() {

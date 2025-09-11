@@ -67,16 +67,14 @@ export default function Hero() {
         <div className="section text-center -translate-y-2 md:-translate-y-4">
           <div className="max-w-[1100px] mx-auto">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight glow leading-tight">
-              Jeg designer digitale oplevelser —<br className="hidden sm:block" />
-              der er enkle og performer.
+            Jeg bygger brugervenlige og stilrene digitale løsninger, der performer.
             </h1>
 
             <p
               className="mt-4 md:mt-5 text-base md:text-lg max-w-2xl mx-auto text-white/85"
               style={{ textShadow: '0 0 8px rgba(255,255,255,.12)' }}
             >
-              Ren, fokuseret og hurtig frontend med blik for detaljen. Jeg hjælper virksomheder
-              med at gøre komplekse ting intuitive og målbare.
+           Mit fokus er på brugervenlighed, performance og et stilrent udtryk, så digitale oplevelser både fungerer og imponerer.
             </p>
 
             <div className="mt-6 md:mt-7 flex items-center justify-center gap-3 md:gap-4">
