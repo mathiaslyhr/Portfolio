@@ -12,7 +12,10 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const top = window.scrollY || document.documentElement.scrollTop
-      if (top < 80) { setActive('hjem'); return }
+      if (top < 80) {
+        setActive('hjem')
+        return
+      }
 
       const positions = links.slice(1).map((l) => {
         const el = document.getElementById(l.id)
@@ -43,18 +46,19 @@ export default function Navbar() {
   return (
     <header className="fixed top-4 left-0 right-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-center">
-        <div className="relative inline-flex">
-          <div className="pointer-events-none absolute inset-0 rounded-full border border-white/10 bg-black/40 backdrop-blur" />
-          {/* her er gap sat op til 6 */}
-          <nav className="relative z-10 flex items-center gap-6 px-4 py-0 overflow-visible">
+        <div className="relative inline-flex px-3">
+          {/* sort pill – lidt smallere i bredden */}
+          <div className="pointer-events-none absolute inset-y-0 inset-x-9 rounded-full border border-white/10 bg-black/40 backdrop-blur px-4" />
+          
+          <nav className="relative z-10 flex items-center gap-6 px-6 py-0 overflow-visible">
             {links.map((l) => {
               const isActive = active === l.id
               const base =
                 'relative rounded-full text-sm inline-flex items-center justify-center transition'
 
               const pill = isActive
-                ? '-my-1 px-4 py-2 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
-                : 'px-3 py-1.5 text-white/80 hover:text-white'
+                ? '-my-1 px-5 py-2 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
+                : 'px-4 py-1.5 text-white/80 hover:text-white'
 
               return (
                 <a

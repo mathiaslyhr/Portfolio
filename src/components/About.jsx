@@ -2,15 +2,18 @@ import Section from './Section'
 
 export default function About() {
   return (
-    <Section id="om" enterFrom="right" className="relative z-20 scroll-mt-24 md:scroll-mt-28">
+    <Section
+      id="om"
+      enterFrom="right"
+      className="relative z-20 scroll-mt-24 md:scroll-mt-28"
+    >
       <div className="grid md:grid-cols-12 gap-5 md:gap-8 items-stretch">
-        {/* Left: portrait full height */}
+        {/* Left: portrait */}
         <div className="md:col-span-5 flex">
           <div className="card w-full flex items-center justify-center overflow-hidden aspect-[4/5] md:aspect-auto">
-            {/* BEMÆRK: billedsti — se note nedenfor */}
             <img
-              src="/portrait-placeholder.jpg"
-              alt="Portræt"
+              src="/img/IMG_0924.jpeg"   // 👈 nu loader dit eget billede
+              alt="Portræt af Mathias"
               className="w-full h-full object-cover grayscale"
               loading="lazy"
               decoding="async"
@@ -21,15 +24,20 @@ export default function About() {
         {/* Right: about + small grid */}
         <div className="md:col-span-7 flex flex-col gap-5 md:gap-6">
           <div className="card flex-1">
-            <h2 className="text-2xl sm:text-3xl text-white font-semibold">Hej, jeg er Mathias</h2>
+            <h2 className="text-2xl sm:text-3xl text-white font-semibold">
+              Hej, jeg er Mathias
+            </h2>
             <p className="p mt-3 sm:mt-4">
-              Web- og multimediedesigner med passion for minimalistisk design, mikrointeraktioner
-              og pixelperfekt frontend-udvikling. Jeg arbejder i <span className="text-white">React</span>, <span className="text-white">Tailwind</span> og
-              moderne værktøjer som <span className="text-white">Vite</span> og <span className="text-white">Framer Motion</span>.
+              Web- og multimediedesigner med passion for minimalistisk design,
+              mikrointeraktioner og pixelperfekt frontend-udvikling. Jeg arbejder
+              i <span className="text-white">React</span>,{' '}
+              <span className="text-white">Tailwind</span> og moderne værktøjer
+              som <span className="text-white">Vite</span> og{' '}
+              <span className="text-white">Framer Motion</span>.
             </p>
             <p className="p mt-3 sm:mt-4">
-              Jeg designer med fokus på brugeren og bygger komponenter, der er lynhurtige,
-              vedligeholdelsesdygtige og tilgængelige.
+              Jeg designer med fokus på brugeren og bygger komponenter, der er
+              lynhurtige, vedligeholdelsesdygtige og tilgængelige.
             </p>
           </div>
 
