@@ -23,30 +23,30 @@ export default function About() {
 
         {/* Right: about + small grid */}
         <div className="md:col-span-7 flex flex-col gap-5 md:gap-6">
-          <div className="card flex-1">
-            <h2 className="text-2xl sm:text-3xl text-white font-semibold">
-              Hej, jeg er Mathias
-            </h2>
-            <p className="p mt-3 sm:mt-4">
-              Web- og multimediedesigner med passion for minimalistisk design,
-              mikrointeraktioner og pixelperfekt frontend-udvikling. Jeg arbejder
-              i <span className="text-white">React</span>,{' '}
-              <span className="text-white">Tailwind</span> og moderne værktøjer
-              som <span className="text-white">Vite</span> og{' '}
-              <span className="text-white">Framer Motion</span>.
-            </p>
-            <p className="p mt-3 sm:mt-4">
-              Jeg designer med fokus på brugeren og bygger komponenter, der er
-              lynhurtige, vedligeholdelsesdygtige og tilgængelige.
-            </p>
-          </div>
+        <div className="card flex-1">
+  <h2 className="text-2xl sm:text-3xl text-white font-semibold">
+    Hej, Jeg er Mathias
+  </h2>
+  <p className="p mt-3 sm:mt-4">
+    Jeg er multimediedesigner med speciale i frontend-udvikling. Jeg har erfaring
+    med klassisk HTML, CSS og JavaScript, men arbejder i dag primært med React og
+    Tailwind CSS. Derudover bruger jeg Node.js og er i gang med at lære backend og har derfor
+    en god forståelse af hele flowet i webudvikling – men min styrke ligger i frontend.
+  </p>
+  <p className="p mt-3 sm:mt-4">
+  Mit fokus er at skabe løsninger, der er brugervenlige, stilrene og lette at arbejde med.
+  Jeg gør komplekse ting enkle og leverer digitale oplevelser, der fungerer og giver værdi for brugeren.
+  </p>
+</div>
+
 
           <div className="grid sm:grid-cols-2 gap-5 md:gap-6 flex-1">
             {[
-              ['Brand & UI', 'Designsystemer, farver, typografi, ikoner.'],
-              ['Frontend', 'Semantisk HTML, React, Tailwind, performance.'],
-              ['Animation', 'Scroll-effekter, microinteractions, Motion.'],
-              ['Optimering', 'Lighthouse, best practices, SEO basics.'],
+                ['UI & Design', 'Stilrene interfaces med fokus på struktur, typografi og visuel sammenhæng.'],
+                ['Frontend', 'React og Tailwind med vægt på performance, hovereffekter og et levende udtryk.'],
+                ['Brugeroplevelse', 'Små interaktioner og detaljer, der gør oplevelsen intuitiv og behagelig.'],
+                ['Fra idé til produkt', 'Jeg kan tage et projekt fra koncept og design til en færdig digital løsning.'],
+              
             ].map(([title, text]) => (
               <div key={title} className="card h-full">
                 <h3 className="text-white font-medium">{title}</h3>
