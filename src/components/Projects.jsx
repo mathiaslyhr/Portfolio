@@ -3,30 +3,31 @@ import { motion } from 'framer-motion'
 
 const data = [
   {
-    title: 'E-handelsprototype',
-    desc: 'Hurtig, responsiv shop med fokus på konvertering.',
-    tags: ['React', 'Tailwind-CSS', 'Figma'],
-    link: '#'
+    title: 'ZeroBuzz Brew',
+    desc: 'Skoleprojekt: Hjemmeside for alkoholfri øl til unge. Bygget i HTML, CSS og JavaScript.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    link: '/zerobuzz'
   },
   {
-    title: 'Portfolio 3D teaser',
-    desc: 'Hero med WebGL-teaser og elegante overgange.',
-    tags: ['React', 'Tailwind-CSS', 'Figma'],
-    link: '#'
+    title: 'Radar',
+    desc: 'Skoleprojekt: Hjemmeside for Radar – et musiksted ved banegården. Fokus på unge brugere og community.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    link: '/radar'
   },
   {
-    title: 'Designsystem',
-    desc: 'Skalerbart komponentbibliotek i Tailwind.',
-    tags: ['React', 'Tailwind-CSS', 'Figma'],
-    link: '#'
+    title: 'ZentroAI',
+    desc: 'Officiel hjemmeside til vores virksomhed med produkter, kontakt og præsentation.',
+    tags: ['React', 'Tailwind CSS', 'Node.js'],
+    link: 'https://zentroai.dk'
   },
   {
-    title: 'Kampagneside',
-    desc: 'Storytelling med sektioner der glider ind/ud ved scroll.',
-    tags: ['React', 'Tailwind-CSS', 'Figma'],
-    link: '#'
+    title: 'ZentroAI Platform',
+    desc: 'Webapp hvor kunder logger ind og bruger de produkter, de har købt på vores platform.',
+    tags: ['React', 'Tailwind CSS', 'Node.js'],
+    link: 'https://app.zentroai.dk'
   }
 ]
+
 
 export default function Projects() {
   return (

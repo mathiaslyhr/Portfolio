@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const links = [
   { id: 'hjem', label: 'Hjem' },
@@ -8,8 +9,16 @@ const links = [
 
 export default function Navbar() {
   const [active, setActive] = useState('hjem')
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
+    if (location.pathname !== '/') {
+      // Hvis vi er på en projektside → marker "Projekter"
+      setActive('projekter')
+      return
+    }
+
     const onScroll = () => {
       const top = window.scrollY || document.documentElement.scrollTop
       if (top < 80) {
@@ -31,15 +40,28 @@ export default function Navbar() {
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [location.pathname])
 
   const handleNav = (e, id) => {
     e.preventDefault()
+
     if (id === 'hjem') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      if (location.pathname !== '/') {
+        navigate('/')
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     } else {
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          const el = document.getElementById(id)
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+      } else {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
@@ -49,7 +71,7 @@ export default function Navbar() {
         <div className="relative inline-flex px-3">
           {/* sort pill – lidt smallere i bredden */}
           <div className="pointer-events-none absolute inset-y-0 inset-x-9 rounded-full border border-white/10 bg-black/40 backdrop-blur px-4" />
-          
+
           <nav className="relative z-10 flex items-center gap-6 px-6 py-0 overflow-visible">
             {links.map((l) => {
               const isActive = active === l.id
@@ -63,7 +85,7 @@ export default function Navbar() {
               return (
                 <a
                   key={l.id}
-                  href={l.id === 'hjem' ? '#' : `#${l.id}`}
+                  href={l.id === 'hjem' ? '/' : `#${l.id}`}
                   onClick={(e) => handleNav(e, l.id)}
                   className="relative"
                 >
