@@ -8,7 +8,7 @@ export default function Radar() {
         <div className="card">
           <h1 className="text-3xl sm:text-4xl font-semibold text-white">Radar</h1>
           <p className="p mt-4">
-            Skoleprojekt for spillestedet Radar ved banegården. Målet var at få flere unge til 
+            Mit første skoleprojekt, for spillestedet Radar ved banegården. Målet var at få flere unge til 
             at engagere sig og støtte stedet. Jeg udviklede en webplatform inspireret af sociale 
             medier, hvor man kunne se månedens kunstner, uploade billeder, vælge notifikationer 
             og tilmelde sig medlemskab.
