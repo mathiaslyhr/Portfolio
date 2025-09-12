@@ -30,8 +30,6 @@ export default function Navbar() {
         const el = document.getElementById(l.id)
         if (!el) return { id: l.id, dist: Infinity }
         const rect = el.getBoundingClientRect()
-
-        // Brug centerpunktet i stedet for top, så kontakt bliver valgt korrekt
         const dist = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2)
         return { id: l.id, dist }
       })
@@ -57,25 +55,45 @@ export default function Navbar() {
       const el = document.getElementById(id)
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        setActive(id) // 👈 marker kontakt som aktiv når man klikker
+        setActive(id)
       }
     }
   }
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-center">
+      <div className="max-w-6xl mx-auto flex items-center justify-center px-2">
         <div className="relative inline-flex px-3">
-          <div className="pointer-events-none absolute inset-y-0 inset-x-9 rounded-full border border-white/10 bg-black/40 backdrop-blur px-4" />
+          {/* Skin (sort baggrund) */}
+          <div
+            className="
+              pointer-events-none absolute inset-y-0 inset-x-9
+              rounded-full border border-white/10 bg-black/40 backdrop-blur px-4
 
-          <nav className="relative z-10 flex items-center gap-6 px-6 py-0 overflow-visible">
+              max-[333px]:inset-x-6 max-[333px]:px-2
+            "
+          />
+
+          {/* Navigation */}
+          <nav
+            className="
+              relative z-10 flex items-center gap-6 px-6 py-0
+              max-[333px]:gap-3 max-[333px]:px-3
+            "
+          >
             {links.map((l) => {
               const isActive = active === l.id
-              const base = 'relative rounded-full text-sm inline-flex items-center justify-center transition'
+
+              const base =
+                'relative rounded-full inline-flex items-center justify-center whitespace-nowrap transition text-sm'
 
               const pill = isActive
                 ? '-my-1 px-5 py-2 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
                 : 'px-4 py-1.5 text-white/80 hover:text-white'
+
+              const pillSmall = isActive
+                ? '-my-1 px-3 py-1.5 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
+                : 'px-2.5 py-1 text-white/80 hover:text-white'
 
               return (
                 <a
@@ -84,7 +102,14 @@ export default function Navbar() {
                   onClick={(e) => handleNav(e, l.id)}
                   className="relative"
                 >
-                  <span className={`${base} ${pill}`}>{l.label}</span>
+                  <span
+                    className={`
+                      ${base} ${pill}
+                      max-[333px]:text-xs max-[333px]:${pillSmall}
+                    `}
+                  >
+                    {l.label}
+                  </span>
                 </a>
               )
             })}
