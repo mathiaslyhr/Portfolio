@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const links = [
   { id: 'hjem', label: 'Hjem' },
@@ -9,16 +9,17 @@ const links = [
 
 export default function Navbar() {
   const [active, setActive] = useState('hjem')
-  const navigate = useNavigate()
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (location.pathname !== '/') {
-      // Hvis vi er på en projektside → marker "Projekter"
+      // På undersider = "Projekter" aktiv
       setActive('projekter')
       return
     }
 
+    // På forsiden = følg scroll
     const onScroll = () => {
       const top = window.scrollY || document.documentElement.scrollTop
       if (top < 80) {
@@ -44,24 +45,15 @@ export default function Navbar() {
 
   const handleNav = (e, id) => {
     e.preventDefault()
-
     if (id === 'hjem') {
       if (location.pathname !== '/') {
-        navigate('/')
+        navigate('/') // hvis man er på undersider → tilbage til forsiden
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        window.scrollTo({ top: 0, behavior: 'smooth' }) // hvis man allerede er på forsiden
       }
     } else {
-      if (location.pathname !== '/') {
-        navigate('/')
-        setTimeout(() => {
-          const el = document.getElementById(id)
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 100)
-      } else {
-        const el = document.getElementById(id)
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
@@ -69,7 +61,6 @@ export default function Navbar() {
     <header className="fixed top-4 left-0 right-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-center">
         <div className="relative inline-flex px-3">
-          {/* sort pill – lidt smallere i bredden */}
           <div className="pointer-events-none absolute inset-y-0 inset-x-9 rounded-full border border-white/10 bg-black/40 backdrop-blur px-4" />
 
           <nav className="relative z-10 flex items-center gap-6 px-6 py-0 overflow-visible">
