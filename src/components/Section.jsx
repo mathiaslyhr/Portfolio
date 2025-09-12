@@ -93,7 +93,8 @@ export default function Section({
     <section
       id={id}
       ref={ref}
-      className={`section ${spaceClass} ${className} transform-gpu [contain:layout_paint_style] will-change-transform`}
+      // 👇 scroll-mt tilføjet her
+      className={`section scroll-mt-28 md:scroll-mt-32 ${spaceClass} ${className} transform-gpu [contain:layout_paint_style] will-change-transform`}
     >
       <motion.div
         style={{ y: parallax && !prefersReduced ? parallaxY : 0 }}

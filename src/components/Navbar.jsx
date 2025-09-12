@@ -5,6 +5,7 @@ const links = [
   { id: 'hjem', label: 'Hjem' },
   { id: 'om', label: 'Om mig' },
   { id: 'projekter', label: 'Projekter' },
+  { id: 'kontakt', label: 'Kontakt' },
 ]
 
 export default function Navbar() {
@@ -14,12 +15,10 @@ export default function Navbar() {
 
   useEffect(() => {
     if (location.pathname !== '/') {
-      // På undersider = "Projekter" aktiv
       setActive('projekter')
       return
     }
 
-    // På forsiden = følg scroll
     const onScroll = () => {
       const top = window.scrollY || document.documentElement.scrollTop
       if (top < 80) {
@@ -31,7 +30,10 @@ export default function Navbar() {
         const el = document.getElementById(l.id)
         if (!el) return { id: l.id, dist: Infinity }
         const rect = el.getBoundingClientRect()
-        return { id: l.id, dist: Math.abs(rect.top - 140) }
+
+        // Brug centerpunktet i stedet for top, så kontakt bliver valgt korrekt
+        const dist = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2)
+        return { id: l.id, dist }
       })
 
       positions.sort((a, b) => a.dist - b.dist)
@@ -47,13 +49,16 @@ export default function Navbar() {
     e.preventDefault()
     if (id === 'hjem') {
       if (location.pathname !== '/') {
-        navigate('/') // hvis man er på undersider → tilbage til forsiden
+        navigate('/')
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' }) // hvis man allerede er på forsiden
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } else {
       const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setActive(id) // 👈 marker kontakt som aktiv når man klikker
+      }
     }
   }
 
@@ -66,8 +71,7 @@ export default function Navbar() {
           <nav className="relative z-10 flex items-center gap-6 px-6 py-0 overflow-visible">
             {links.map((l) => {
               const isActive = active === l.id
-              const base =
-                'relative rounded-full text-sm inline-flex items-center justify-center transition'
+              const base = 'relative rounded-full text-sm inline-flex items-center justify-center transition'
 
               const pill = isActive
                 ? '-my-1 px-5 py-2 bg-white/85 text-black shadow-lg ring-1 ring-black/5'
