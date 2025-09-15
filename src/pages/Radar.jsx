@@ -11,7 +11,7 @@ export default function Radar() {
             Mit første skoleprojekt, for spillestedet Radar ved banegården. Målet var at få flere unge til 
             at engagere sig og støtte stedet. Jeg udviklede en webplatform inspireret af sociale 
             medier, hvor man kunne se månedens kunstner, uploade billeder, vælge notifikationer 
-            og tilmelde sig medlemskab.
+            og tilmelde sig medlemskab. Der er dog lidt fejl, ved nogle billeder der ikke virker og små andre ting.
           </p>
         </div>
 

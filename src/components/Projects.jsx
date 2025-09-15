@@ -16,13 +16,13 @@ const data = [
   },
   {
     title: 'ZentroAI',
-    desc: 'Officiel hjemmeside til vores virksomhed med produkter, kontakt og præsentation.',
+    desc: 'Officiel hjemmeside til min ven og jegs virksomhed. Med information og forms til kunderne.',
     tags: ['React', 'Tailwind CSS', 'Node.js'],
     link: 'https://zentroai.dk'
   },
   {
     title: 'ZentroAI Platform',
-    desc: 'Webapp hvor kunder logger ind og bruger de produkter, de har købt på vores platform.',
+    desc: 'Webapp hvor kunder logger ind og bruger de produkter, de har købt.(Stadig under udvikling, så har ikke lagt det op på domænet endnu) ',
     tags: ['React', 'Tailwind CSS', 'Node.js'],
     link: 'https://app.zentroai.dk'
   }
@@ -33,9 +33,6 @@ export default function Projects() {
     <Section id="projekter" enterFrom="left">
       <div className="flex items-end justify-between">
         <h2 className="text-white text-3xl md:text-4xl font-semibold">Udvalgte projekter</h2>
-        <a href="#kontakt" className="hidden md:inline-flex btn-ghost">
-          Lad os arbejde sammen
-        </a>
       </div>
       <div className="grid md:grid-cols-2 gap-6 mt-8">
         {data.map((p, i) => {

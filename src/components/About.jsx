@@ -25,11 +25,11 @@ export default function About() {
         <div className="md:col-span-7 flex flex-col gap-5 md:gap-6">
         <div className="card flex-1">
   <h2 className="text-2xl sm:text-3xl text-white font-semibold">
-    Hej, Jeg er Mathias
+    Hej, jeg er Mathias
   </h2>
   <p className="p mt-3 sm:mt-4">
-    Jeg er multimediedesigner med speciale i frontend-udvikling. Jeg har erfaring
-    med klassisk HTML, CSS og JavaScript, men arbejder i dag primært med React og
+    Jeg studere multimediedesigner med speciale i frontend-udvikling. Jeg har erfaring
+    med klassisk HTML, CSS og JavaScript, men arbejder primært med React og
     Tailwind CSS. Derudover bruger jeg Node.js og er i gang med at lære backend og har derfor
     en god forståelse af hele flowet i webudvikling – men min styrke ligger i frontend.
   </p>
@@ -42,7 +42,7 @@ export default function About() {
 
           <div className="grid sm:grid-cols-2 gap-5 md:gap-6 flex-1">
             {[
-                ['UI & Design', 'Stilrene interfaces med fokus på struktur, typografi og visuel sammenhæng.'],
+                ['UI & design', 'Stilrene interfaces med fokus på struktur, typografi og visuel sammenhæng.'],
                 ['Frontend', 'React og Tailwind med vægt på performance, hovereffekter og et levende udtryk.'],
                 ['Brugeroplevelse', 'Små interaktioner og detaljer, der gør oplevelsen intuitiv og behagelig.'],
                 ['Fra idé til produkt', 'Jeg kan tage et projekt fra koncept og design til en færdig digital løsning.'],
