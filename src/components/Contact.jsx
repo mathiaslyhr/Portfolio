@@ -52,7 +52,7 @@ export default function Contact() {
           </a>
 
           {/* LinkedIn */}
-          <a href="https://www.linkedin.com/in/mathiaslyhr" target="_blank" rel="noreferrer" className="text-white/80 hover:text-white transition">
+          <a href="https://www.linkedin.com/in/mathias-lyhr-237658384/" target="_blank" rel="noreferrer" className="text-white/80 hover:text-white transition">
             <Icon name="linkedin" />
           </a>
         </div>
